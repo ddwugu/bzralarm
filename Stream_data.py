@@ -1,7 +1,10 @@
 import streamlit as st
 import requests
 import pandas as pd
-import winsound
+import pygame
+
+# Initialize pygame mixer
+pygame.mixer.init()
 
 # Web Title
 st.title('Pertamina Field Jambi')
@@ -46,7 +49,7 @@ while True:
         # Check conditions for buzzer
         if Titik_2_PSI < 90 or Titik_1_PSI < 150:
             # Trigger buzzer sound
-            winsound.Beep(1000, 5000)  # Adjust frequency (1000) and duration (500) as needed
+            pygame.mixer.Sound('s.mp3').play()  # Adjust the file name as needed
         
     else:
         placeholder1.error("Failed to fetch data. Please try again later.")
